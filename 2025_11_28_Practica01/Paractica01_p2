@@ -31,7 +31,7 @@ mario = {'nombre':'Super Mario',
 
 alumnos = [bruce, harry, hermione, peter, mario]
 
-filtrar = input("Desea filtrar por calificacion (S/N)")
+filtrar = input("Desea filtrar por calificacion (S/N) (Una opcion no valida mostrara todo)")
 
 filtro = "Mostrar todo"
 if filtrar == "S" or filtrar == "s":
