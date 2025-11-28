@@ -1,0 +1,92 @@
+# Diccionarios con las notas de los alumnos
+bruce = { 'nombre': 'Bruce Banner',
+    'trabajos': [80, 50, 40, 20],
+    'test' : [75, 75],
+    'practicas' : [78.20, 77.20]
+}
+
+harry = {'nombre':'Harry Potter',
+    'trabajos' : [82, 56, 44, 30],
+    'test' : [80, 80],
+    'practicas' : [67.90, 78.72]
+}
+
+hermione = {'nombre':'Hermione Ranger',
+    'trabajos' : [95, 100, 100, 100],
+    'test' : [99, 100],
+    'practicas' : [95.0, 80.5]
+}
+
+peter = {'nombre':'Peter Parker',
+    'trabajos' : [30, 10, 100, 100],
+    'test' : [90, 10],
+    'practicas' : [50.0, 50.0]
+}
+
+mario = {'nombre':'Super Mario',
+    'trabajos' : [77, 82, 23, 39],
+    'test' : [18, 60],
+    'practicas' : [80.6, 59.3]
+}
+
+alumnos = [bruce, harry, hermione, peter, mario]
+
+filtrar = input("Desea filtrar por calificacion (S/N)")
+
+filtro = "Mostrar todo"
+if filtrar == "S" or filtrar == "s":
+    print("Introduce uno de los siguientes valores")
+    filtro = input('"Sobresaliente", "Notable", "Bien", "Suficiente", "Necesita mejorar", "Mostrar todo"')
+
+    opciones_validas = ["Sobresaliente", "Notable", "Bien", "Suficiente", "Necesita mejorar", "Mostrar todo"]
+    valido = False
+    while not valido:
+        if filtro in opciones_validas:
+            valido = True
+        else:
+            print("No valido. Valores validos: ")
+            filtro = input('"Sobresaliente", "Notable", "Bien", "Suficiente", "Necesita mejorar", "Mostrar todo"')
+    
+for alumno in alumnos:
+    suma_trabajos = 0
+    for nota in alumno['trabajos']:
+        suma_trabajos = suma_trabajos + nota
+
+    media_trabajos = suma_trabajos / 4
+    
+    suma_test = 0
+    for nota in alumno['test']:
+        suma_test = suma_test + nota
+
+    media_test = suma_test / 2
+    
+    suma_practicas = 0
+    for nota in alumno['practicas']:
+        suma_practicas = suma_practicas + nota
+        
+    media_practicas = suma_practicas / 2
+    
+    nota_final = (media_trabajos * 0.10) + (media_test * 0.50) + (media_practicas * 0.40)
+    
+    if nota_final >= 90:
+        calificacion = "Sobresaliente"
+    elif nota_final >= 70:
+        calificacion = "Notable"
+    elif nota_final >= 60:
+        calificacion = "Bien"
+    elif nota_final >= 50:
+        calificacion = "Suficiente"
+    else:
+        calificacion = "Necesita mejorar"
+    
+    if filtro == "Mostrar todo":
+        print(alumno['nombre'])
+        print("====================================")
+        print(f"Nota media final para {alumno['nombre']}: {nota_final}")
+        print(f"Calificacion final de {alumno['nombre']}: {calificacion}")
+    else:
+        if calificacion == filtro:
+            print(alumno['nombre'])
+            print("==========================")
+            print(f"Nota media final para {alumno['nombre']}: {nota_final}")
+            print(f"Calificacion final de {alumno['nombre']}: {calificacion}")
