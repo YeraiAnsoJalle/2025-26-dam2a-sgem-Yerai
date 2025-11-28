@@ -63,7 +63,7 @@ for alumno in alumnos:
     suma_practicas = 0
     for nota in alumno['practicas']:
         suma_practicas = suma_practicas + nota
-        
+
     media_practicas = suma_practicas / 2
     
     nota_final = (media_trabajos * 0.10) + (media_test * 0.50) + (media_practicas * 0.40)
@@ -82,11 +82,11 @@ for alumno in alumnos:
     if filtro == "Mostrar todo":
         print(alumno['nombre'])
         print("====================================")
-        print(f"Nota media final para {alumno['nombre']}: {nota_final}")
+        print(f"Nota media final para {alumno['nombre']}: {round(nota_final,2)}")
         print(f"Calificacion final de {alumno['nombre']}: {calificacion}")
     else:
         if calificacion == filtro:
             print(alumno['nombre'])
             print("==========================")
-            print(f"Nota media final para {alumno['nombre']}: {nota_final}")
+            print(f"Nota media final para {alumno['nombre']}: {round(nota_final,2)}")
             print(f"Calificacion final de {alumno['nombre']}: {calificacion}")

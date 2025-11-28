@@ -63,5 +63,5 @@ for alumno in alumnos:
     else:
         calificacion = "Necesita mejorar"
     
-    print(f"Nota media final para {alumno['nombre']} : {nota_final}")
+    print(f"Nota media final para {alumno['nombre']} : {round(nota_final,2)}")
     print(f"Calificación final de {alumno['nombre']} : {calificacion}")
